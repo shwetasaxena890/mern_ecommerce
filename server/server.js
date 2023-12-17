@@ -3,8 +3,8 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-// const userRouter = require("./router/userRouter");
-// const itemsRouter = require("./router/ItemsRouter");
+const userRouter = require("./router/userRouter");
+const itemsRouter = require("./router/ItemsRouter");
 
 dotenv.config({ path: "./config.env" });
 const connect = require("./db/connection");
@@ -20,8 +20,8 @@ app.use(
   })
 );
 
-// app.use("/api/user", userRouter);
-// app.use("/api/items", itemsRouter);
+app.use("/api/user", userRouter);
+app.use("/api/items", itemsRouter);
 
 const port = process.env.PORT || 8080;
 
